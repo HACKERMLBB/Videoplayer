@@ -71,7 +71,7 @@ def get_m3u8():
     link = request.json.get("link", "").strip()
     try:
         result = subprocess.run(
-            ["yt-dlp", "-g", "-f", "best[height<=720]/best", link],
+            ["yt-dlp", "-g", "-f", "best[height<=540]/best", link],
             capture_output=True, text=True, timeout=30
         )
         url = result.stdout.strip().splitlines()
